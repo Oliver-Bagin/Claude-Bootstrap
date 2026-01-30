@@ -1,128 +1,210 @@
 # Claude Bootstrap
 
-A turborepo monorepo starter with Next.js 15 and Express. Designed for non-technical users with strong guardrails.
+A ready-to-use project template for building web applications with the help of AI.
 
-## Features
+## Why Use This Project?
 
-- **Full TypeScript strict mode** - Maximum type safety
-- **ESLint with strict rules** - No `any` type allowed
-- **Prettier** - Consistent code formatting
-- **Husky + Commitlint** - Enforced commit conventions
-- **Single command development** - `pnpm run dev` starts everything
+This project is designed to make building software easier, especially if you're new to programming or working with AI assistants like Claude.
 
-## Prerequisites
+### No External Services Required
 
-- Node.js >= 20.9.0
-- pnpm >= 9.0.0
+Everything runs on your computer. You don't need to set up databases, cloud accounts, or pay for external services to get started. Just download, install, and run.
 
-Install pnpm if you don't have it:
+### Built-in Guardrails
+
+The project includes automatic checks that help prevent common mistakes:
+
+- **Type checking** catches errors before you run your code
+- **Code formatting** keeps everything consistent and readable
+- **Linting** warns you about potential problems
+- **Commit checks** ensure your saved changes follow best practices
+
+These guardrails mean that even if you're learning, the tools will guide you toward writing better code.
+
+---
+
+## Glossary
+
+Here's what each technology in this project does and why it was chosen:
+
+- **Node.js** - The engine that runs JavaScript on your computer (not just in a browser). Required to run this project.
+  - [Node.js Documentation](https://nodejs.org/docs/latest/api/)
+
+- **pnpm** - A tool that downloads and manages the code libraries this project depends on. Faster and more efficient than alternatives.
+  - [pnpm Documentation](https://pnpm.io/)
+
+- **Turborepo** - Organizes the project so the frontend and backend can live together but stay separate. Makes running both at once simple.
+  - [Turborepo Documentation](https://turbo.build/repo/docs)
+
+- **TypeScript** - A version of JavaScript that catches mistakes by checking your code before it runs. Like a spell-checker for code.
+  - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+- **Next.js** - A framework for building the part of the app users see (the frontend). Handles pages, navigation, and displaying data.
+  - [Next.js Documentation](https://nextjs.org/docs)
+
+- **React** - A library for building user interfaces. Next.js is built on top of React.
+  - [React Documentation](https://react.dev/)
+
+- **Express** - A simple framework for building the part of the app that handles data (the backend/API).
+  - [Express Documentation](https://expressjs.com/)
+
+- **TanStack Query** - Makes it easy for the frontend to fetch and display data from the backend.
+  - [TanStack Query Documentation](https://tanstack.com/query/latest/docs/framework/react/overview)
+
+- **shadcn/ui** - Pre-built, good-looking buttons, cards, and other interface components you can use right away.
+  - [shadcn/ui Documentation](https://ui.shadcn.com/docs)
+
+- **Tailwind CSS** - A way to style your app by adding class names directly to elements. No need to write separate style files.
+  - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+
+- **ESLint** - Checks your code for potential problems and enforces consistent style.
+  - [ESLint Documentation](https://eslint.org/docs/latest/)
+
+- **Prettier** - Automatically formats your code to look clean and consistent.
+  - [Prettier Documentation](https://prettier.io/docs/en/)
+
+- **Husky** - Runs checks automatically before you save changes to Git.
+  - [Husky Documentation](https://typicode.github.io/husky/)
+
+---
+
+## Setting Up Your Mac
+
+Before you can use this project, you'll need a few tools installed on your Mac.
+
+### Step 1: Install Xcode Command Line Tools
+
+These are basic development tools that many other tools depend on. Open the **Terminal** app (search for "Terminal" in Spotlight) and paste this command:
 
 ```bash
-npm install -g pnpm
+xcode-select --install
 ```
 
-## Quick Start
+A popup will appear asking you to install. Click "Install" and wait for it to finish.
 
-1. Install dependencies:
+### Step 2: Install Homebrew
 
-   ```bash
-   pnpm install
-   ```
-
-2. Start development servers:
-   ```bash
-   pnpm run dev
-   ```
-
-This starts:
-
-- **Frontend**: http://localhost:3000 (Next.js)
-- **Backend**: http://localhost:3001 (Express)
-
-## Available Commands
-
-| Command              | Description                        |
-| -------------------- | ---------------------------------- |
-| `pnpm run dev`       | Start all apps in development mode |
-| `pnpm run build`     | Build all apps for production      |
-| `pnpm run lint`      | Lint all apps                      |
-| `pnpm run typecheck` | Type check all apps                |
-| `pnpm run format`    | Format all files with Prettier     |
-
-### App-specific commands
+Homebrew is a tool that makes it easy to install software on your Mac. Paste this command in Terminal:
 
 ```bash
-# Run only frontend
-pnpm --filter @repo/frontend dev
-
-# Run only backend
-pnpm --filter @repo/backend dev
-
-# Add a dependency to frontend
-pnpm --filter @repo/frontend add <package>
-
-# Add a dependency to backend
-pnpm --filter @repo/backend add <package>
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## Project Structure
+Follow the instructions on screen. After it finishes, it will tell you to run a few commands to add Homebrew to your path - make sure to do that.
 
-```
-├── apps/
-│   ├── frontend/          # Next.js 15 with App Router
-│   │   ├── src/app/       # Pages and layouts
-│   │   └── src/components # React components
-│   └── backend/           # Express API server
-│       └── src/index.ts   # Server entry point
-├── packages/
-│   ├── config-typescript/ # Shared TypeScript configs
-│   └── config-eslint/     # Shared ESLint configs
-├── CLAUDE.md              # AI assistant conventions
-└── README.md              # This file
+Learn more: [Homebrew Website](https://brew.sh/)
+
+### Step 3: Install Node.js
+
+With Homebrew installed, getting Node.js is simple:
+
+```bash
+brew install node
 ```
 
-## Tech Stack
+### Step 4: Install pnpm
 
-- **Frontend**: Next.js 15, React 19, TypeScript
-- **Backend**: Express, TypeScript
-- **Build**: Turborepo, pnpm workspaces
-- **Quality**: ESLint (flat config), Prettier, Husky, Commitlint
+pnpm is the package manager this project uses:
 
-## API Endpoints
-
-| Method | Endpoint     | Description                 |
-| ------ | ------------ | --------------------------- |
-| GET    | `/api/hello` | Returns hello world message |
-| GET    | `/health`    | Health check                |
-
-## Commit Convention
-
-This project uses [Conventional Commits](https://www.conventionalcommits.org/). Your commits must follow this format:
-
-```
-type: description
-
-Examples:
-feat: add user authentication
-fix: resolve login redirect issue
-docs: update API documentation
+```bash
+brew install pnpm
 ```
 
-Valid types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+---
 
-## Troubleshooting
+## Getting the Project
 
-### "Command not found: pnpm"
+### How to Clone a Git Repository
 
-Install pnpm globally: `npm install -g pnpm`
+"Cloning" means downloading a copy of a project from GitHub to your computer.
 
-### Type errors on first run
+1. Open Terminal
+2. Navigate to where you want the project. For example, to put it in a "Projects" folder in your Documents:
+   ```bash
+   cd ~/Documents
+   mkdir Projects
+   cd Projects
+   ```
+3. Clone this project:
+   ```bash
+   git clone git@github.com:Oliver-Bagin/Claude-Bootstrap.git
+   ```
+4. Move into the project folder:
+   ```bash
+   cd Claude-Bootstrap
+   ```
 
-Run `pnpm install` to ensure all dependencies are installed.
+If you get an error about SSH keys, you can use the HTTPS URL instead:
+```bash
+git clone https://github.com/Oliver-Bagin/Claude-Bootstrap.git
+```
 
-### ESLint errors about type checking
+---
 
-Make sure you're running ESLint from the app directory, not the root.
+## Getting Started with Claude
+
+Claude Code is an AI assistant that can help you build and modify this project by understanding your instructions in plain English.
+
+### Install Claude Code
+
+1. First, make sure you have Node.js installed (see above)
+2. Install Claude Code globally:
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+3. You'll need an Anthropic API key. Get one at [console.anthropic.com](https://console.anthropic.com/)
+
+Learn more: [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+
+### Optional: Install iTerm2
+
+iTerm2 is a better terminal app for Mac with more features than the built-in Terminal. It's not required, but many developers prefer it.
+
+```bash
+brew install --cask iterm2
+```
+
+After installing, you can find iTerm in your Applications folder.
+
+Learn more: [iTerm2 Website](https://iterm2.com/)
+
+---
+
+## Opening This Project with Claude
+
+1. Open Terminal (or iTerm2)
+2. Navigate to the project folder:
+   ```bash
+   cd ~/Documents/Projects/Claude-Bootstrap
+   ```
+3. Start Claude Code:
+   ```bash
+   claude
+   ```
+4. Claude will start and show you a prompt where you can type
+
+### Running the Project
+
+Once Claude is running, simply type:
+
+> Run the project for me
+
+Claude will install any missing dependencies and start both the frontend and backend servers. You'll then be able to open your browser to [http://localhost:3000](http://localhost:3000) to see your app running.
+
+---
+
+## What's Next?
+
+Once the project is running, you can ask Claude to help you:
+
+- "Add a new page to the frontend"
+- "Create an API endpoint that returns a list of items"
+- "Make the homepage look different"
+- "Explain how this project is structured"
+
+Claude will make the changes for you and explain what it's doing along the way.
+
+---
 
 ## License
 
