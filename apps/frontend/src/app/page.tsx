@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useGetHello } from '@/api/queries';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,7 +17,14 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 sm:p-12 md:p-24">
       <Card className="w-full max-w-md shadow-lg">
-        <CardHeader>
+        <CardHeader className="items-center">
+          <Image
+            src="/claude-icon-filled-256.webp"
+            alt="Claude"
+            width={64}
+            height={64}
+            className="mb-2"
+          />
           <CardTitle>Claude Bootstrap</CardTitle>
           <CardDescription>
             A turborepo starter with Next.js and Express
