@@ -198,6 +198,20 @@ After installing, you can find iTerm in your Applications folder.
 
 Learn more: [iTerm2 Website](https://iterm2.com/)
 
+### Optional: Install Oh My Zsh
+
+Oh My Zsh adds autocompletion, syntax highlighting, and useful plugins to your terminal. It makes working in the terminal easier with features like tab-completing commands, git shortcuts, and more.
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+After installing, restart your terminal. You'll notice a new look and can start using features like:
+- **Tab autocompletion** - Press `Tab` to autocomplete commands, file paths, and git branches
+- **Git aliases** - Type `gst` instead of `git status`, `gco` instead of `git checkout`, and more
+
+Learn more: [Oh My Zsh Website](https://ohmyz.sh/)
+
 ---
 
 ## Opening This Project with Claude
